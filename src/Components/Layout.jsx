@@ -14,7 +14,7 @@ const Layout = () => {
     <div className="bg-[rgb(26,26,26)]">
       <Header onSearch={handleSearch} />
       <div className="flex">
-        <div className="w-[200px] bg-red-50 h-full sticky left-0 top-[50px]">
+        <div className="w-[200px]  h-full sticky left-0 top-[50px]">
           <NavBar />
         </div>
         <div>
