@@ -8,7 +8,7 @@ const NavBar = () => {
   };
 
   return (
-    <div>
+    <div className="m-0">
       <ul className="text-white bg-[rgb(26,26,26)] w-[200px] h-[680px]">
         <li
           className={`${

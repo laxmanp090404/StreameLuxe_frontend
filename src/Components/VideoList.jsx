@@ -46,19 +46,34 @@ const VideoCard = ({
   );
 };
 
-const VideoList = () => {
+const VideoList = ({ searchText }) => {
   const [videos, setVideos] = useState([]);
+  const [filteredVideos, setFilteredVideos] = useState([]);
 
   useEffect(() => {
     fetch("https://ypapi.formz.in/api/public/videos")
       .then((response) => response.json())
-      .then((data) => setVideos(data))
+      .then((data) => {
+        setVideos(data);
+        setFilteredVideos(data);
+      })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
+  useEffect(() => {
+    if (searchText.trim() === "") {
+      setFilteredVideos(videos);
+    } else {
+      const filtered = videos.filter((video) =>
+        video.title.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredVideos(filtered);
+    }
+  }, [searchText, videos]);
+
   return (
-    <div className="video-list flex flex-wrap gap-10 p-[30px] bg-[rgb(25,25,25)] text-white">
-      {videos.map((video, index) => (
+    <div className="video-list flex flex-wrap gap-10 p-[30px] bg-[rgb(25,25,25)] text-white m-0">
+      {filteredVideos.map((video, index) => (
         <VideoCard key={index} {...video} />
       ))}
     </div>

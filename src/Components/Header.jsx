@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Header = () => {
+const Header = ({onSearch}) => {
+  const [searchText, setSearchText] = useState("");
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+    console.log(searchText);
+  };
+  const handleSearch = (e) => {
+    onSearch(searchText);
+    console.log("searched text is"+searchText);
+  };
   return (
     <div className="w-full h-[50px] bg-[rgb(25,25,25)] flex items-center justify-between px-4 sticky top-0 left-0 z-10">
       <p className="logo text-white font-extrabold">STREAMLUXE</p>
@@ -13,12 +22,16 @@ const Header = () => {
             type="text"
             placeholder="Search..."
             className="bg-inherit focus:outline-none text-white w-full"
+            value={searchText}
+            onChange={handleChange}
           />
+
           <img
             src="/assets/search.png"
             width={"20px"}
             height={"50px"}
             className="cursor-pointer"
+            onClick={handleSearch}
           />
         </div>
         <div className="videoicon">
