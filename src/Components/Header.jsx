@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="w-full h-[50px] bg-[rgb(35,35,35)] flex items-center justify-between px-4">
+    <div className="w-full h-[50px] bg-[rgb(25,25,25)] flex items-center justify-between px-4 sticky top-0 left-0 z-10">
       <p className="logo text-white font-extrabold">STREAMLUXE</p>
       <div className="uti flex items-center gap-3">
         <div className="bg-yellow-300 size-6 flex items-center justify-center rounded-xl cursor-pointer">
