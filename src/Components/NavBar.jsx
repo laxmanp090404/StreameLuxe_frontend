@@ -4,7 +4,7 @@ const NavBar = () => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   const handleItemClick = (index) => {
-    setSelectedItem(index === selectedItem ? null : index);
+    setSelectedItem(index === selectedItem ? selectedItem : index);
   };
 
   return (
